@@ -1,14 +1,85 @@
 # YelpCamp
-## Why I created it?
-I watched a udemy coursed named [”The Web Developer Bootcamp”](https://www.udemy.com/course/the-web-developer-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=WebDevelopment_v.PROF_la.EN_cc.ROWMTA-B_ti.8322&utm_content=deal4584&utm_term=_._ag_80869579591_._ad_533999956732_._kw__._de_c_._dm__._pl__._ti_dsa-774930035449_._li_20899_._pd__._&matchtype=) and I was instructed step by step in how to create this application.
-## How long before it was done?
-The completion of the entire course took me about 3 months and after watching it I acumulated knowledge about the way a server works, 
-what is a web application, what front-end and back-end is about, what are databases, what is a web session and why we are getting those
-cookie modules permission requests each time we open social media apps like Facebook.
-I've been instructed in cyber security concepts like Sql injection, cross-site scripting, mongo injection and cookie stealing
-and how important it is that I make apps that are not vulnerable to those types of attacks.
-## What is this application all about?
-It is a platform which shows us a variety of camping places all around the world.
-The clients can interact with it through comments and reviews and they can add new camping places as well. 
-There is also a authentication system implemented with passport library.
-Link: [YelpCamp](https://aqueous-ravine-93685.herokuapp.com/)
+
+Platformă pentru descoperirea și partajarea locurilor de campare. Utilizatorii pot explora campgrounduri, adăuga locuri noi și lasă comentarii și review-uri. Aplicația include autentificare (Passport), încărcare imagini (Cloudinary) și hărți (Mapbox).
+
+**Demo:** [https://yelpcamp.macesandrei.com/](https://yelpcamp.macesandrei.com/)
+
+---
+
+## De ce am creat proiectul?
+
+Am urmărit cursul [The Web Developer Bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/) pe Udemy și am construit aplicația pas cu pas. În aproximativ 3 luni am învățat cum funcționează un server, ce înseamnă o aplicație web, front-end vs back-end, baze de date, sesiuni web și de ce apar cereri de permisiuni pentru cookie-uri pe rețelele sociale.
+
+Am aplicat noțiuni de securitate: SQL injection, cross-site scripting (XSS), Mongo injection și protecția cookie-urilor, astfel încât aplicația să fie mai puțin vulnerabilă la aceste atacuri.
+
+---
+
+## Ce poți face în aplicație?
+
+- Operații CRUD pentru campgrounduri și reviews.
+- Înregistrare și autentificare
+- Adăugarea de locuri noi de campare (cu locație pe hartă)
+- Comentarii și review-uri la campgrounduri
+
+---
+
+## Rulare locală
+
+### Cerințe
+
+- **Node.js** (recomandat v14+)
+- **MongoDB** (local sau URI la un serviciu extern)
+- Conturi opționale pentru [Cloudinary](https://cloudinary.com/) (imagini) și [Mapbox](https://www.mapbox.com/) (hărți)
+
+### Pași
+
+1. **Clonează repository-ul**
+   ```bash
+   git clone <url-repository>
+   cd YelpCamp-MVC
+   ```
+
+2. **Instalează dependențele**
+   ```bash
+   npm install
+   ```
+
+3. **Configurează variabilele de mediu**  
+   Creează un fișier `.env` în rădăcina proiectului cu următoarele variabile:
+
+   | Variabilă | Descriere | Exemplu |
+   |-----------|-----------|---------|
+   | `DB_URL` | URI MongoDB | `mongodb://localhost:27017/yelp-camp` |
+   | `SECRET` | Secret pentru sesiuni (Passport/cookies) | un string lung și aleatoriu |
+   | `PORT` | Portul serverului (opțional) | `3000` |
+   | `MAPBOX_TOKEN` | Token Mapbox pentru hărți (opțional) | `pk.eyJ1...` |
+   | `CLOUDINARY_CLOUD_NAME` | Nume cloud Cloudinary (opțional) | |
+   | `CLOUDINARY_KEY` | API key Cloudinary (opțional) | |
+   | `CLOUDINARY_SECRET` | Secret Cloudinary (opțional) | |
+
+   Fără `DB_URL` și `SECRET`, aplicația folosește valori implicite (MongoDB local și un secret de development).
+
+4. **Pornește aplicația**
+   ```bash
+   npm start
+   ```
+
+   Aplicația va rula la [http://localhost:3000](http://localhost:3000) (sau la portul setat în `PORT`).
+
+---
+
+## Tehnologii
+
+- **Back-end:** Node.js, Express
+- **Baze de date:** MongoDB, Mongoose
+- **Autentificare:** Passport (Local Strategy), express-session, connect-mongo
+- **Template-uri:** EJS, EJS Mate
+- **Securitate:** Helmet, express-mongo-sanitize, sanitize-html
+- **Validare:** Joi
+- **Stocare:** Cloudinary (imagini), Mapbox (hărți)
+
+---
+
+## Licență
+
+ISC
